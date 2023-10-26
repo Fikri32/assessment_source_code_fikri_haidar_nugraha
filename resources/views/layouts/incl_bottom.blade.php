@@ -27,8 +27,6 @@
 <script src="{{ asset('assets/plugins/select2/js/select2.full.min.js')}}"></script>
 <!-- Select2 -->
 
-<!-- daterangepicker -->
-<script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/daterangepicker/daterangepicker.js') }}"></script>
+<script src="{{ asset('assets/plugins/chart.js/Chart.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/dist/js/adminlte.js') }}"></script>

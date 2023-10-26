@@ -11,6 +11,7 @@ class ReportController extends Controller
 {
     public function index()
     {
+        // Card Count Transaction
         $totalTransaksi = Transaction::count();
         $totalPendapatan = Transaction::sum('total_amount');
         $totalPendapatanFormatted = number_format($totalPendapatan, 2, ',', '.');
@@ -19,11 +20,31 @@ class ReportController extends Controller
             ->join('merchants', 'transactions.id_merchants', '=', 'merchants.id')
             ->groupBy('merchants.name')
             ->get();
-        return view('report.index', compact('totalTransaksi', 'totalPendapatanFormatted', 'totalPelanggan', 'totalTransaksiPerMerchant'));
+        // End Card
+        // Bar chart Monthly Transaction
+        $transactionData = Transaction::select(
+            DB::raw('MONTH(transaction_time) as month'),
+            DB::raw('YEAR(transaction_time) as year'),
+            DB::raw('count(*) as total_transactions')
+        )
+            ->groupBy('year', 'month')
+            ->orderBy('year', 'asc')
+            ->orderBy('month', 'asc')
+            ->get();
+
+        $months = [];
+        $counts = [];
+
+        foreach ($transactionData as $data) {
+            $months[] = date("M Y", strtotime($data->year . '-' . $data->month . '-01'));
+            $counts[] = $data->total_transactions;
+        }
+
+
+        return view('report.index', compact('totalTransaksi', 'totalPendapatanFormatted', 'totalPelanggan', 'totalTransaksiPerMerchant', 'months', 'counts'));
     }
     public function getReportTransaction(Request $request)
     {
-        // Yajra Datatables
         // Yajra Datatables
         $query = Transaction::query();
 
@@ -56,25 +77,21 @@ class ReportController extends Controller
             ->addIndexColumn()
             ->addColumn('id_merchants', function ($transaction) {
                 if ($transaction->id_merchants != null) {
-                    // dd($transaction);
                     return $transaction->merchant->name;
                 }
             })
             ->addColumn('id_outlets', function ($transaction) {
                 if ($transaction->id_outlets != null) {
-                    // dd($transaction);
                     return $transaction->outlet->name;
                 }
             })
             ->addColumn('id_staff', function ($transaction) {
                 if ($transaction->id_staff != null) {
-                    // dd($transaction);
                     return $transaction->staff->name;
                 }
             })
             ->addColumn('id_customers', function ($transaction) {
                 if ($transaction->id_customers != null) {
-                    // dd($transaction);
                     return $transaction->customer->name;
                 }
             })

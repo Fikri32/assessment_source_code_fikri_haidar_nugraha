@@ -154,5 +154,45 @@
       table.column(2).search(this.value).draw();
     });
     // End Initial Datatable
+
+    // BarCharts
+
+    var ctx = document.getElementById('barChart').getContext('2d');
+
+    var months = @json($months); // Ambil data bulan dari controller
+    var counts = @json($counts); // Ambil data jumlah transaksi dari controller
+
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: months,
+        datasets: [{
+          label: 'Total Transaction Per Month',
+          data: counts,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Jumlah Transaksi'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Bulan'
+            }
+          }
+        }
+      }
+    });
+
+
   });
 </script>
