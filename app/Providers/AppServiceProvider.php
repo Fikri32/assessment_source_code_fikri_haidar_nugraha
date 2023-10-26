@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,8 +22,14 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(\Illuminate\Http\Request $request)
     {
-        //
+        if (app()->environment('local')) {
+            // Aplikasi berjalan secara lokal
+            URL::forceScheme('http');
+        } else {
+            // Aplikasi berjalan di lingkungan selain lokal (contohnya, di Ngrok)
+            URL::forceScheme('https');
+        }
     }
 }
