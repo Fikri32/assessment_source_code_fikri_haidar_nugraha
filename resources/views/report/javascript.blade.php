@@ -159,16 +159,18 @@
 
     var ctx = document.getElementById('barChart').getContext('2d');
 
-    var months = @json($months); // Ambil data bulan dari controller
-    var counts = @json($counts); // Ambil data jumlah transaksi dari controller
+    var mergedData = @json($mergedData); // Mengambil data PHP ke dalam JavaScript
+
+    var labels = mergedData.map(data => data.month); // Mengambil bulan sebagai label
+    var data = mergedData.map(data => data.total_transactions); // Mengambil total transaksi
 
     var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: months,
+        labels: labels,
         datasets: [{
           label: 'Total Transaction Per Month',
-          data: counts,
+          data: data,
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
           borderColor: 'rgba(75, 192, 192, 1)',
           borderWidth: 1

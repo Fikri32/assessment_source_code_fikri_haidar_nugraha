@@ -22,6 +22,7 @@ class ReportController extends Controller
             ->get();
         // End Card
         // Bar chart Monthly Transaction
+        $allMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         $transactionData = Transaction::select(
             DB::raw('MONTH(transaction_time) as month'),
             DB::raw('YEAR(transaction_time) as year'),
@@ -32,16 +33,33 @@ class ReportController extends Controller
             ->orderBy('month', 'asc')
             ->get();
 
-        $months = [];
-        $counts = [];
+        $mergedData = [];
+        foreach ($allMonths as $month) {
+            $year = date('Y');
+            $dataFound = false;
 
-        foreach ($transactionData as $data) {
-            $months[] = date("M Y", strtotime($data->year . '-' . $data->month . '-01'));
-            $counts[] = $data->total_transactions;
+            foreach ($transactionData as $data) {
+                if ($month == date("F", strtotime($data->year . '-' . $data->month . '-01'))) {
+                    $mergedData[] = [
+                        'month' => $month,
+                        'year' => $year,
+                        'total_transactions' => $data->total_transactions,
+                    ];
+                    $dataFound = true;
+                    break;
+                }
+            }
+
+            if (!$dataFound) {
+                $mergedData[] = [
+                    'month' => $month,
+                    'year' => $year,
+                    'total_transactions' => 0,
+                ];
+            }
         }
 
-
-        return view('report.index', compact('totalTransaksi', 'totalPendapatanFormatted', 'totalPelanggan', 'totalTransaksiPerMerchant', 'months', 'counts'));
+        return view('report.index', compact('totalTransaksi', 'totalPendapatanFormatted', 'totalPelanggan', 'totalTransaksiPerMerchant', 'mergedData'));
     }
     public function getReportTransaction(Request $request)
     {
