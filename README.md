@@ -58,15 +58,15 @@ This is a simple web application built using Laravel, PHP, and JavaScript to dis
 - **Merchant CRUD:** Perform Create, Read, Update, and Delete (CRUD) operations on merchants.
 - **Searching:** Implement a simple search functionality for merchants.
 
-### Outlet Page (Similar to Merchant)
+### Outlet Page 
 - **Outlet CRUD:** Perform CRUD operations on outlets.
 - **Searching:** Implement a simple search functionality for outlets.
 
-### Staff Page (Similar to Merchant)
+### Staff Page 
 - **Staff CRUD:** Perform CRUD operations on staff members.
 - **Searching:** Implement a simple search functionality for staff members.
 
-### Customer Page (Similar to Merchant)
+### Customer Page 
 - **Customer CRUD:** Perform CRUD operations on customers.
 - **Searching:** Implement a simple search functionality for customers.
 
