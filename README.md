@@ -10,6 +10,9 @@ This is a simple web application built using Laravel, PHP, and JavaScript to dis
 
 ### How to Run the Project
 
+if you want to run it locally make sure APP_ENV=local 
+but if you want to see it in ngrok make sure APP_ENV=production
+
 1. Clone the project to your local machine.
    ```
    git clone <https://github.com/Fikri32/assessment_source_code_fikri_haidar_nugraha.git>
