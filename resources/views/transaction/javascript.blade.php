@@ -77,7 +77,7 @@
         var table = $('#tableTransactions').DataTable({
             processing: true,
             serverSide: true,
-            // responsive: true,
+            fixedHeader: true,
             scrollX: true,
             dom: 'lBfrtip',
             buttons: [
@@ -116,7 +116,8 @@
                 },
                 {
                     data: 'pay_amount',
-                    name: 'pay_amount'
+                    name: 'pay_amount',
+                    render: $.fn.dataTable.render.number(',', '.', 2, 'Rp ')
                 },
                 {
                     data: 'payment_type',
@@ -128,15 +129,18 @@
                 },
                 {
                     data: 'tax',
-                    name: 'tax'
+                    name: 'tax',
+                    render: $.fn.dataTable.render.number(',', '.', 2, 'Rp ')
                 },
                 {
                     data: 'change_amount',
-                    name: 'change_amount'
+                    name: 'change_amount',
+                    render: $.fn.dataTable.render.number(',', '.', 2, 'Rp ')
                 },
                 {
                     data: 'total_amount',
-                    name: 'total_amount'
+                    name: 'total_amount',
+                    render: $.fn.dataTable.render.number(',', '.', 2, 'Rp ')
                 },
                 {
                     data: 'payment_status',
@@ -154,7 +158,7 @@
                 },
             ]
         });
-        
+
         // End Initial Datatable
 
         // Load Relational Data
@@ -226,7 +230,10 @@
                     $("#tax").val(res.data.tax);
                     $("#change_amount").val(res.data.change_amount);
                     $("#total_amount").val(res.data.total_amount);
-                    $("#transaction_time").val(res.data.transaction_time);
+                    // Format tipe tanggal
+                    $("#transaction_time").val(res.data.transaction_time.split(' ').join('T'));
+
+                    // $("#transaction_time").val(formattedDate);
                     // Reset select form
                     $("#merchant").empty()
                     $("#outlet").empty()

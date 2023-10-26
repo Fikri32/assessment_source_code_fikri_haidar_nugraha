@@ -29,8 +29,8 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="tableOutlets" class="table table-bordered table-striped">
-                            <thead>
+                        <table id="tableOutlets" class="table table-striped">
+                            <thead class="bg-light">
                                 <tr>
                                     <th class="text-center">No</th>
                                     <th class="text-center">Outlet Name</th>
@@ -75,7 +75,7 @@
                                     <div class="form-group">
                                         <label>Merchant Name</label>
                                         <select class="form-control" id="merchant" name="id_merchants" style="width: 100%;">
-                                           
+
                                         </select>
                                     </div>
                                 </form>

@@ -1,6 +1,6 @@
 ## Laravel Transaction Report Web Application
 
-This is a simple web application built using Laravel, PHP, and JavaScript to display a list of transactions and includes specific functionalities. 
+This is a simple web application built using Laravel, PHP, and JavaScript to display a list of transactions and includes specific functionalities.
 
 ### Project Requirements
 
@@ -34,6 +34,7 @@ This is a simple web application built using Laravel, PHP, and JavaScript to dis
 5. Configure your database settings in the `.env` file.
 
 6. Migrate and seed the database.
+    I have also prepared database migrations and seeds to help you quickly populate the database with sample data.
    ```
    php artisan migrate --seed
    ```
@@ -47,15 +48,28 @@ This is a simple web application built using Laravel, PHP, and JavaScript to dis
 
 ### Features
 
+### Transaction Page
 - **Transaction Report Page:** Access the transaction report page to view recorded transactions.
 - **Filtering:** Filter transactions by Date, Merchant Name, Payment Status, and Outlet Name.
 - **Pagination:** View 10 entries per page.
 - **Export Report:** Export transactions as a CSV file.
 - **Search Navigation:** Use the search functionality to find specific transactions.
 
-### Database
+### Merchant Page
+- **Merchant CRUD:** Perform Create, Read, Update, and Delete (CRUD) operations on merchants.
+- **Searching:** Implement a simple search functionality for merchants.
 
-- The project includes a local database with 30 transaction entries.
+### Outlet Page (Similar to Merchant)
+- **Outlet CRUD:** Perform CRUD operations on outlets.
+- **Searching:** Implement a simple search functionality for outlets.
+
+### Staff Page (Similar to Merchant)
+- **Staff CRUD:** Perform CRUD operations on staff members.
+- **Searching:** Implement a simple search functionality for staff members.
+
+### Customer Page (Similar to Merchant)
+- **Customer CRUD:** Perform CRUD operations on customers.
+- **Searching:** Implement a simple search functionality for customers.
 
 ### Exported Data
 
@@ -68,5 +82,4 @@ Thank you for reviewing this project!
 
 ---
 
-**Author:** [Your Name]  
-**Date:** [Current Date]
+**Author:** [Fikri Haidar Nugraha]  

@@ -29,8 +29,8 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="tableMerchants" class="table table-bordered table-striped">
-                            <thead>
+                        <table id="tableMerchants" class="table table-striped">
+                            <thead class="bg-light">
                                 <tr>
                                     <th class="text-center">No</th>
                                     <th class="text-center">Merchant Name</th>

@@ -29,26 +29,26 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="tableTransactions" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">No</th>
-                                    <th class="text-center">Merchant Name</th>
-                                    <th class="text-center">Outlet Name</th>
-                                    <th class="text-center">Transaction Date</th>
-                                    <th class="text-center">Transaction Time</th>
-                                    <th class="text-center">Staff</th>
-                                    <th class="text-center">Pay Amount</th>
-                                    <th class="text-center">Payment Type</th>
-                                    <th class="text-center">Customer Name</th>
-                                    <th class="text-center">Tax</th>
-                                    <th class="text-center">Change Amount</th>
-                                    <th class="text-center">Total Amount</th>
-                                    <th class="text-center">Payment Status</th>
-                                    <th class="text-center">Created At</th>
-                                    <th class="text-center">Action</th>
-                                </tr>
-                            </thead>
+                        <table id="tableTransactions" class="table table-striped">
+                            <thead class="bg-light">
+                                    <tr>
+                                        <th class="text-center">No</th>
+                                        <th class="text-center">Merchant Name</th>
+                                        <th class="text-center">Outlet Name</th>
+                                        <th class="text-center">Transaction Date</th>
+                                        <th class="text-center">Transaction Time</th>
+                                        <th class="text-center">Staff</th>
+                                        <th class="text-center">Pay Amount</th>
+                                        <th class="text-center">Payment Type</th>
+                                        <th class="text-center">Customer Name</th>
+                                        <th class="text-center">Tax</th>
+                                        <th class="text-center">Change Amount</th>
+                                        <th class="text-center">Total Amount</th>
+                                        <th class="text-center">Payment Status</th>
+                                        <th class="text-center">Created At</th>
+                                        <th class="text-center">Action</th>
+                                    </tr>
+                                </thead>
                             <tfoot>
                                 <tr>
                                     <th class="text-center">No</th>
@@ -116,7 +116,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="merchants">Pay Amount</label>
-                                                <input type="number" class="form-control input-currency" id="pay_amount" name="pay_amount"  type-currency="IDR" placeholder="Pay Amount">
+                                                <input type="number" class="form-control input-currency" id="pay_amount" name="pay_amount" type-currency="IDR" placeholder="Pay Amount">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -134,7 +134,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="merchants">Transaction Time</label>
-                                                <input type="date" class="form-control" id="transaction_time" name="transaction_time" placeholder="Enter Transaction Time">
+                                                <input type="datetime-local" class="form-control" id="transaction_time" name="transaction_time" placeholder="Enter Transaction Time">
                                             </div>
                                             <div class="form-group">
                                                 <label>Payment Type</label>
