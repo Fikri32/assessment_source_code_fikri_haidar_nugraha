@@ -13,7 +13,6 @@ This is a simple web application built using Laravel, PHP, and JavaScript to dis
 1. Clone the project to your local machine.
    ```
    git clone <https://github.com/Fikri32/assessment_source_code_fikri_haidar_nugraha.git>
-   cd laravel-transaction-report
    ```
 
 2. Install project dependencies using Composer.
